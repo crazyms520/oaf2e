@@ -1,0 +1,64 @@
+@import "_oa";
+$height: 200px;
+$width: 100px;
+
+* {
+  &, &:after, &:before {
+    vertical-align: top;
+    @include box-sizing(border-box);
+    @include selection(rgba(150, 200, 255, 1), rgba(255, 255, 255, 1));
+    @include font-smoothing(antialiased);
+  }
+}
+
+.a{
+	display: inline-block;
+	width:100%;
+	// background-color: blue;
+	border:1px solid blue;
+	@include clearfix();
+	> * {
+		height: $height;
+		float: left;
+		display: inline-block;
+	}
+	.b{
+		width: $width;
+		// background-color: pink;
+		border:1px solid pink;
+	}
+	.c{
+		width: calc(100% - #{$width} - #{$width});
+		// background-color: red;
+		border:1px solid red;
+	}
+	.d{
+		width: $width;
+		// background-color: green;	
+		border:1px solid green;
+	}
+	@include transition(all 3s);
+	.b:hover,.d:hover{
+		width: 200px;
+	}
+}
+
+#btn{
+	width:$width;
+	height:$width;
+	background-color: blue;
+	border-radius: 5px;
+	outline:0;
+	
+	&:hover
+	{
+		background-color: red;
+	}
+
+	&:active
+	{
+		background-color: pink;	
+	}
+
+
+}
